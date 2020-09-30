@@ -61,10 +61,10 @@ if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
         return (
             <div onClick={() => handleShow(elem)} className="col-3" key={elem.id} >
               <div className="contentItem hoverShadow">
-                {elem.image && 
+                   {elem.image && 
                   <img src={elem.image} alt={elem.name + "image"} className=" w-100"/>
                 }
-                  <h4>{elem.name}</h4>
+              <h4>{elem.name}</h4>      
               </div>
            </div>
         )
