@@ -9,6 +9,7 @@ export default function SideFilters(props:{handler:(e:any)=>void, value:string})
                     <h4>Filters</h4>
                 <label>
                     <input
+                        style={{marginRight:10}}
                         type="radio" 
                         value="characters" 
                         name="filter"
@@ -19,6 +20,7 @@ export default function SideFilters(props:{handler:(e:any)=>void, value:string})
                 </label> 
                 <label>
                     <input 
+                        style={{marginRight:10}}
                         type="radio"
                         value="episodes"
                         name="filter"
@@ -29,6 +31,7 @@ export default function SideFilters(props:{handler:(e:any)=>void, value:string})
                 </label> 
                 <label>
                     <input 
+                        style={{marginRight:10}}
                         type="radio" 
                         value="locations" 
                         name="filter" 

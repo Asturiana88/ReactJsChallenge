@@ -59,17 +59,19 @@ if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
       <div className="row">
         {data[dataAttribute].results.map((elem:any) => {
         return (
-            <div onClick={() => handleShow(elem)} className="col-3" key={elem.id}> 
-              {elem.image && 
-                  <img src={elem.image} alt={elem.name + "image"}/>
+            <div onClick={() => handleShow(elem)} className="col-3" key={elem.id} >
+              <div className="contentItem hoverShadow">
+                {elem.image && 
+                  <img src={elem.image} alt={elem.name + "image"} className=" w-100"/>
                 }
-              <h4 >{elem.name}</h4>
+                  <h4>{elem.name}</h4>
+              </div>
            </div>
         )
       })}
       </div>
-     <button disabled={prevPage == null} onClick={prevPageHandler}>Previus Page</button> 
-     <button disabled={nextPage == null} onClick={nextPageHandler}>Next Page</button> 
+     <button className="btn btn-dark ml-1" disabled={prevPage == null} onClick={prevPageHandler}>Previous Page</button> 
+     <button className="btn btn-dark ml-1" disabled={nextPage == null} onClick={nextPageHandler}>Next Page</button> 
   </div>
   )
 }

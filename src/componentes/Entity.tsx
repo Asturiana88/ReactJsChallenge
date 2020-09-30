@@ -15,12 +15,12 @@ export default function Entity(props:EntityProps) {
         selElem.name ? 
         <>
         <div className="d-flex justify-content-end">
-            <button onClick={handleClose} className="close" style={{padding: 10, outline: "none", fontWeight:"bold", opacity:1}}>X</button>
+            <button onClick={handleClose} className="close closeBtn">X</button>
         </div>
         {selElem.image ?
        <Modal.Body>
           <img width="100%" src={selElem.image} alt={selElem.name}/>
-          <Modal.Title style={{textAlign: "center"}}>
+          <Modal.Title className="titleModal">
             {selElem.name}
           </Modal.Title>
           <table>
@@ -42,7 +42,7 @@ export default function Entity(props:EntityProps) {
         </Modal.Body>
         : selElem.dimension ? 
         <Modal.Body>
-            <Modal.Title style={{textAlign: "center"}}>
+            <Modal.Title className="titleModal">
               {selElem.name}
             </Modal.Title>
             <p><strong><u>Type:</u></strong>{" " + selElem.type}</p>
@@ -51,21 +51,22 @@ export default function Entity(props:EntityProps) {
             <div className="row">
                   {selElem.residents && selElem.residents.map((elem:any, i:number)=>{
                         if (i < 5){
-                          if (elem.name == null){return <strong style={{margin: 10}}>No Residents</strong>}
+                          if (elem.name == null){return <strong className="noData">No Residents</strong>}
                           return (
-                            <div key={elem.id} style={{textAlign: "center"}} className="col-3">
+                            <div key={elem.id}  className="col-3 titleModal">
                             <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                             <strong>{" " + elem.name}</strong>
                             </div>
                           )
                         }
+                        return null
                     } 
                   ) 
                   }
             </div>
          </Modal.Body>
          :  <Modal.Body>
-              <Modal.Title style={{textAlign: "center"}}>
+              <Modal.Title className="titleModal">
               {selElem.name}
             </Modal.Title>
                 <p><strong><u>Release Date:</u></strong>{" " + selElem.air_date}</p>
@@ -75,12 +76,13 @@ export default function Entity(props:EntityProps) {
                    {selElem.characters && selElem.characters.map((elem:any, i:number)=>{
                     if (i < 5){
                       return (
-                        <div  key={elem.id} style={{textAlign: "center"}} className="col-3">
+                        <div  key={elem.id} className="col-3 titleModal">
                         <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                         <strong>{" " + elem.name}</strong>
                         </div>
                       )
                     }
+                    return null
                 }
                 )
               }

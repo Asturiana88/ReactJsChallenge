@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+.hoverShadow:hover{
+  box-shadow: 0 0 8px #343a40;
+  transform: scale(1.05);
+  transition: all .3s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.magnifierSvg{
+  position: absolute; 
+  left:10px;
+   top: 10px;
+  width:1em ;
+  height:1em;
+  fill:currentColor ;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputSearch{
+  padding-left: 35px;
+  border-radius: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sideFilterContainer{
+  border-right: 3px solid #343a40;
+}
+
+.footerContainer{
+  background-color:#343a40;
+  position:fixed;
+  bottom:0;
+  width:100%
+}
+
+.footerFont{
   color: white;
+  margin-top:10px;
 }
 
-.App-link {
-  color: #61dafb;
+.closeBtn{
+  padding: 10px !important;
+  outline: none;
+  font-weight:bold;
+  opacity:1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.titleModal{
+  text-align: center
+}
+
+.noData{
+  margin: 10px
+}
+
+.footerH{
+  height: 40px;
+}
+
+.selectType{
+  background-color: #343a40;
+  color:white
+}
+
+.contentItem{
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #343a40;
+  transition: all .3s ease-in-out;
 }
