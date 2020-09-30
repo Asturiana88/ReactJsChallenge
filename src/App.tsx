@@ -49,8 +49,8 @@ function App() {
  <div className="wrapper">
    <div className="container-fluid mt-3">
     <div className="row">
-      <div className="col-2"/>
-      <div className="col-9">
+      <div className="col col-md-2"/>
+      <div className="col-12 col-md-9">
         <div className="form-group d-flex position-relative">
           <select disabled={dataAttrib === "episodes"} className="form-control w-auto selectType" onChange={handlerSeletedTypeName} value={seletedTypeName}>
             <option value="name">Name</option>
@@ -63,10 +63,10 @@ function App() {
           <button className="btn btn-dark ml-1" onClick={handlerReset}>Reset</button>         
         </div>
       </div>
-      <div className="col-2 sideFilterContainer" >
+      <div className="col-12 col-md-3 col-lg-2 sideFilterContainer" >
         <SideFilters handler={handlerFilterSelection} value={dataAttrib}/>
       </div>
-      <div className="col-9">
+      <div className="col-12 col-md-9">
         <Content filter={filterContent} query={filterQuery} dataAttribute={dataAttrib} onSeletedTypeName={seletedTypeName}/>
       </div>
     </div>

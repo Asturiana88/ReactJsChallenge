@@ -4,7 +4,6 @@ export default function SideFilters(props:{handler:(e:any)=>void, value:string})
     const {handler, value} = props
     return (
         <div className="c-sidebar c-sidebar-dark c-sidebar-show">
-            <ul className="c-sidebar-nav">
                 <div className="d-flex flex-column">
                     <h4>Filters</h4>
                 <label>
@@ -41,7 +40,6 @@ export default function SideFilters(props:{handler:(e:any)=>void, value:string})
                     Locations
                 </label>
                 </div>
-            </ul>
         </div>
     )
 }

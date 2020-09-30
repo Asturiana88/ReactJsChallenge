@@ -63,7 +63,7 @@ function Characters(props:{filter:string, query:DocumentNode, dataAttribute:stri
       <div className="row">
         {data[dataAttribute].results.map((elem:any) => {
         return (
-            <div onClick={() => handleShow(elem)} className="col-3" key={elem.id} >
+            <div onClick={() => handleShow(elem)} className="col-12 col-md-6 col-lg-4 col-xl-3" key={elem.id} >
               <div className="contentItem hoverShadow">
                 {elem.image ?
                 <> 

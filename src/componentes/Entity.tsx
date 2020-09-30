@@ -53,7 +53,7 @@ export default function Entity(props:EntityProps) {
                         if (i < 5){
                           if (elem.name == null){return <strong className="noData">No Residents</strong>}
                           return (
-                            <div key={elem.id}  className="col-3 titleModal contentItem">
+                            <div key={elem.id}  className="col-5 col-md-3 titleModal contentItem">
                             <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                             <strong>{" " + elem.name}</strong>
                             </div>
@@ -76,7 +76,7 @@ export default function Entity(props:EntityProps) {
                    {selElem.characters && selElem.characters.map((elem:any, i:number)=>{
                     if (i < 5){
                       return (
-                        <div  key={elem.id} className="col-3 titleModal contentItem">
+                        <div  key={elem.id} className="col-5 col-md-3 titleModal contentItem">
                         <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                         <strong>{" " + elem.name}</strong>
                         </div>
