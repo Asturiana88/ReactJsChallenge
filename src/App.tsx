@@ -38,6 +38,7 @@ function App() {
       setFilterQuery(CHARACTERS_QUERY)
     }
     setDataAttrib(e.target.value)
+    setSeletedTypeName("name")
   }
 
   function handlerSeletedTypeName(e:any) {
@@ -51,9 +52,9 @@ function App() {
       <div className="col-2"/>
       <div className="col-9">
         <div className="form-group d-flex position-relative">
-          <select className="form-control w-auto selectType" onChange={handlerSeletedTypeName} value={seletedTypeName}>
+          <select disabled={dataAttrib === "episodes"} className="form-control w-auto selectType" onChange={handlerSeletedTypeName} value={seletedTypeName}>
             <option value="name">Name</option>
-            <option  value="type">Type</option>
+         <option value="type">Type</option>
           </select>
           <div className="position-relative w-100 ml-1">
             <input type="text" className="form-control inputSearch" value={filterContent} onChange={handleFilter}/>

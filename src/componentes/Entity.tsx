@@ -27,7 +27,7 @@ export default function Entity(props:EntityProps) {
             <tbody>
             <tr>
               <td>Type:</td>
-              <td><strong>{selElem.type}</strong></td>
+              <td><strong>{selElem.type === "" ?  " - "  : selElem.type}</strong></td>
             </tr>
             <tr>
               <td>Gender:</td>
@@ -53,7 +53,7 @@ export default function Entity(props:EntityProps) {
                         if (i < 5){
                           if (elem.name == null){return <strong className="noData">No Residents</strong>}
                           return (
-                            <div key={elem.id}  className="col-3 titleModal">
+                            <div key={elem.id}  className="col-3 titleModal contentItem">
                             <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                             <strong>{" " + elem.name}</strong>
                             </div>
@@ -76,7 +76,7 @@ export default function Entity(props:EntityProps) {
                    {selElem.characters && selElem.characters.map((elem:any, i:number)=>{
                     if (i < 5){
                       return (
-                        <div  key={elem.id} className="col-3 titleModal">
+                        <div  key={elem.id} className="col-3 titleModal contentItem">
                         <img width="100%" src={elem.image} alt={elem.name}/> <br/>
                         <strong>{" " + elem.name}</strong>
                         </div>

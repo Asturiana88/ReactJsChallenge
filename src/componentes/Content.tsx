@@ -1,43 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery, DocumentNode } from '@apollo/client';
 import Entity from './Entity'
+import pickleRick from '../assets/pickle_rick.jpg'
 
 function Characters(props:{filter:string, query:DocumentNode, dataAttribute:string, onSeletedTypeName:"name"|"type"}) {
 
-const {filter, query, dataAttribute, onSeletedTypeName} = props
+  const {filter, query, dataAttribute, onSeletedTypeName} = props
 
-const [page, setPage] = useState<number>(1)
-const [show, setShow] = useState(false);
-const [selectedElem, setSelectedElem] = useState({})
+  const [page, setPage] = useState<number>(1)
+  const [show, setShow] = useState(false);
+  const [selectedElem, setSelectedElem] = useState({})
 
 
-const queryOptions = { 
-  variables:{
-    name: "",
-    type: "",
-    page
+  const queryOptions = { 
+    variables:{
+      name: "",
+      type: "",
+      page
+    }
   }
-}
 
-useEffect(() => {setPage(1)}, [filter]);
+  useEffect(() => {
+    setPage(1)
+  }, [filter]);
 
 
-if (filter.length > 2 || filter.length === 0){
-  queryOptions.variables[onSeletedTypeName] = filter
-}
 
-const { loading, error, data } = useQuery(query, queryOptions)
+  if (filter.length > 2 || filter.length === 0){
+    queryOptions.variables[onSeletedTypeName] = filter
+  }
 
-if(error) return <div> Error... </div>;
-if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
- 
+  const { loading, error, data } = useQuery(query, queryOptions)
+  console.log(data);
+
+  if(error && !data) return <div> 
+    <strong>We couldn't find results... but we have this Pickle Rick for you :D!!</strong>
+    <img  src={pickleRick} alt={"Pickle Rick"} className="w-auto notFound"/>
+  </div>;
+  
+  if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
+  
   let nextPage = data[dataAttribute].info.next
   let prevPage = data[dataAttribute].info.prev
-
-  
-/*   function seletedFilteredHandler(event:any) {
-    setSelectedFilter(event.target.value)
-  } */
 
   function prevPageHandler() {
     setPage(currentPage => currentPage -1)
@@ -61,12 +65,26 @@ if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
         return (
             <div onClick={() => handleShow(elem)} className="col-3" key={elem.id} >
               <div className="contentItem hoverShadow">
-                   {elem.image && 
+                {elem.image ?
+                <> 
                   <img src={elem.image} alt={elem.name + "image"} className=" w-100"/>
+                  <h4 className="modal-title">{elem.name}</h4>      
+                </>
+                : elem.dimension?
+                <>
+                  <h4 className="modal-title">{elem.name}</h4> 
+                  <p>Type: <h6 className="d-inline">{elem.type}</h6></p> 
+                  <p>Dimension: <h6 className="d-inline">{elem.dimension}</h6></p>   
+                </>
+                : 
+                <>
+                <h4 className="modal-title">{elem.name}</h4>   
+                <p>Episode Date: <h6 className="d-inline">{elem.air_date}</h6></p>  
+                <p>Episode: <h6 className="d-inline">{elem.episode}</h6></p>       
+              </> 
                 }
-              <h4>{elem.name}</h4>      
               </div>
-           </div>
+            </div>
         )
       })}
       </div>

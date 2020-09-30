@@ -64,3 +64,11 @@
   border: 2px solid #343a40;
   transition: all .3s ease-in-out;
 }
+
+.notFound{
+  max-height: -webkit-fill-available;
+}
+
+.modal-title{
+  margin-bottom: 15px;
+}
