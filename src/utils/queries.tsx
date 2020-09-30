@@ -34,9 +34,7 @@ query($name:String, $page:Int){
       name
       type
       dimension
-      residents{
-        name
-      }
+      residents{name, image}
     }
   }
 }
@@ -54,8 +52,9 @@ query($name:String, $page:Int){
     results{
       id
       name
+      air_date
       episode
-      name
+      characters{name, image}
     }
   }
 }

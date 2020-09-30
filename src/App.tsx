@@ -8,6 +8,7 @@ function App() {
   const [dataAttrib, setDataAttrib] = useState("characters")
   const [filterQuery, setFilterQuery] = useState(CHARACTERS_QUERY)
   const [ filterContent, setFilterContent ] = useState('')
+  const [seletedTypeName, setSeletedTypeName] =  useState<"name"|"type">("name")
   
   function handleFilter(event:any) {
     setFilterContent(event.target.value)
@@ -29,6 +30,10 @@ function App() {
     }
     setDataAttrib(e.target.value)
   }
+
+  function handlerSeletedTypeName(e:any) {
+    setSeletedTypeName(e.target.value)
+  }
   
   return (
  <div className="wrapper">
@@ -36,6 +41,10 @@ function App() {
     <div className="row">
       <div className="col-3"/>
       <div className="col-8">
+      <select onChange={handlerSeletedTypeName} value={seletedTypeName}>
+            <option value="name">Name</option>
+            <option  value="type">Type</option>
+          </select>
         <div className="form-group d-flex" style={{position:"relative"}}>
           <input type="text" className="form-control" style={{paddingLeft: 35, borderRadius: 30}} value={filterContent} onChange={handleFilter}/>
           <button onClick={handlerReset}>Reset</button>         
@@ -49,7 +58,7 @@ function App() {
         <SideFilters handler={handlerFilterSelection} value={dataAttrib}/>
       </div>
       <div className="col-9">
-        <Content filter={filterContent} query={filterQuery} dataAttribute={dataAttrib}/>
+        <Content filter={filterContent} query={filterQuery} dataAttribute={dataAttrib} onSeletedTypeName={seletedTypeName}/>
       </div>
     </div>
    </div>

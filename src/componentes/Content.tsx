@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery, DocumentNode } from '@apollo/client';
+import Entity from './Entity'
 
-function Characters(props:{filter:string, query:DocumentNode, dataAttribute:string}) {
+function Characters(props:{filter:string, query:DocumentNode, dataAttribute:string, onSeletedTypeName:"name"|"type"}) {
 
-const {filter, query, dataAttribute} = props
+const {filter, query, dataAttribute, onSeletedTypeName} = props
 
 const [page, setPage] = useState<number>(1)
-const [selectedFilter, setSelectedFilter] = useState<"name"|"type">("name")
+const [show, setShow] = useState(false);
+const [selectedElem, setSelectedElem] = useState({})
+
 
 const queryOptions = { 
   variables:{
@@ -20,7 +23,7 @@ useEffect(() => {setPage(1)}, [filter]);
 
 
 if (filter.length > 2 || filter.length === 0){
-  queryOptions.variables[selectedFilter] = filter
+  queryOptions.variables[onSeletedTypeName] = filter
 }
 
 const { loading, error, data } = useQuery(query, queryOptions)
@@ -32,9 +35,9 @@ if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
   let prevPage = data[dataAttribute].info.prev
 
   
-  function seletedFilteredHandler(event:any) {
+/*   function seletedFilteredHandler(event:any) {
     setSelectedFilter(event.target.value)
-  }
+  } */
 
   function prevPageHandler() {
     setPage(currentPage => currentPage -1)
@@ -44,22 +47,25 @@ if(!data || !data[dataAttribute] || loading) return <div> Loading... </div>;
     setPage(currentPage => currentPage +1)
   }
 
+  const handleShow = (elem:any) => {
+    setSelectedElem(elem)
+    setShow(true)
+  };
+  const handleClose = () => setShow(false);
+
   return (
     <div>
-      <select onChange={seletedFilteredHandler} value={selectedFilter}>
-        <option value="name">Name</option>
-        <option  value="type">Type</option>
-      </select>
+      <Entity show={show} handleClose={handleClose} selElem={selectedElem}/>
       <div className="row">
         {data[dataAttribute].results.map((elem:any) => {
         return (
-        <div className="col-3" key={elem.id}> 
-          {elem.image && 
-              <img src={elem.image} alt={elem.name + "image"}/>
-            }
-          <h4 >{elem.name}</h4>
-        </div>
-      )
+            <div onClick={() => handleShow(elem)} className="col-3" key={elem.id}> 
+              {elem.image && 
+                  <img src={elem.image} alt={elem.name + "image"}/>
+                }
+              <h4 >{elem.name}</h4>
+           </div>
+        )
       })}
       </div>
      <button disabled={prevPage == null} onClick={prevPageHandler}>Previus Page</button> 
