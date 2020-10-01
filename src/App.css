@@ -7,7 +7,7 @@
 .magnifierSvg{
   position: absolute; 
   left:10px;
-   top: 10px;
+  top: 10px;
   width:1em ;
   height:1em;
   fill:currentColor ;

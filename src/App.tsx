@@ -16,13 +16,13 @@ function App() {
 
   const [dataAttrib, setDataAttrib] = useState("characters")
   const [filterQuery, setFilterQuery] = useState(CHARACTERS_QUERY)
-  const [ filterContent, setFilterContent ] = useState('')
+  const [filterContent, setFilterContent ] = useState('')
   const [seletedTypeName, setSeletedTypeName] =  useState<"name"|"type">("name")
   
   function handleFilter(event:any) {
     setFilterContent(event.target.value)
-   
   }
+
   function handlerReset() {
     setFilterContent('')
   }
