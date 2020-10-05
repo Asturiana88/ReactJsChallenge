@@ -3,6 +3,26 @@ import { useQuery, DocumentNode } from '@apollo/client';
 import Entity from './Entity'
 import pickleRick from '../assets/pickle_rick.jpg'
 
+export interface itemInterface{
+  id?: number,
+  name?: string,
+  type?: string,
+  gender?: string,
+  species?: string,
+  image?: string,
+  dimension?: string,
+  residents?:[{
+    name: string,
+     image: string
+  }],
+  episode?: string,
+  air_date?: string,
+  characters?:[{
+     name: string,
+     image: string
+  }]
+}
+
 function Characters(props:{filter:string, query:DocumentNode, dataAttribute:string, onSeletedTypeName:"name"|"type"}) {
 
   const {filter, query, dataAttribute, onSeletedTypeName} = props
@@ -31,7 +51,7 @@ function Characters(props:{filter:string, query:DocumentNode, dataAttribute:stri
   }
 
   const { loading, error, data } = useQuery(query, queryOptions)
-  console.log(data);
+
 
   if(error && !data) return <div> 
     <strong>We couldn't find results... but we have this Pickle Rick for you :D!!</strong>
@@ -51,7 +71,7 @@ function Characters(props:{filter:string, query:DocumentNode, dataAttribute:stri
     setPage(currentPage => currentPage +1)
   }
 
-  const handleShow = (elem:any) => {
+  const handleShow = (elem:itemInterface) => {
     setSelectedElem(elem)
     setShow(true)
   };
@@ -61,7 +81,7 @@ function Characters(props:{filter:string, query:DocumentNode, dataAttribute:stri
     <div>
       <Entity show={show} handleClose={handleClose} selElem={selectedElem}/>
       <div className="row">
-        {data[dataAttribute].results.map((elem:any) => {
+        {data[dataAttribute].results.map((elem:itemInterface) => {
         return (
             <div onClick={() => handleShow(elem)} className="col-12 col-md-6 col-lg-4 col-xl-3" key={elem.id} >
               <div className="contentItem hoverShadow">

@@ -1,10 +1,11 @@
 import React from 'react'
 import {Modal} from 'react-bootstrap'
+import {itemInterface} from './Content'
 
 interface EntityProps {
   show:Boolean,
-  handleClose:(elem:any)=>void,
-  selElem:any
+  handleClose:(elem:itemInterface)=>void,
+  selElem:itemInterface
 }
 
 export default function Entity(props:EntityProps) {
@@ -49,7 +50,7 @@ export default function Entity(props:EntityProps) {
             <p><strong><u>Dimension:</u></strong>{" " + selElem.dimension}</p>
             <p><u><strong>Residents: </strong></u></p>
             <div className="row">
-                  {selElem.residents && selElem.residents.map((elem:any, i:number)=>{
+                  {selElem.residents && selElem.residents.map((elem:itemInterface, i:number)=>{
                         if (i < 5){
                           if (elem.name == null){return <strong className="noData">No Residents</strong>}
                           return (
@@ -73,7 +74,7 @@ export default function Entity(props:EntityProps) {
                 <p><strong><u>Episode:</u></strong>{" " + selElem.episode}</p>
                 <p><u><strong>Characters: </strong></u></p>   
                 <div className="row">
-                   {selElem.characters && selElem.characters.map((elem:any, i:number)=>{
+                   {selElem.characters && selElem.characters.map((elem:itemInterface, i:number)=>{
                     if (i < 5){
                       return (
                         <div  key={elem.id} className="col-5 col-md-3 titleModal contentItem">

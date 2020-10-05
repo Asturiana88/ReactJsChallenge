@@ -19,7 +19,7 @@ function App() {
   const [filterContent, setFilterContent ] = useState('')
   const [seletedTypeName, setSeletedTypeName] =  useState<"name"|"type">("name")
   
-  function handleFilter(event:any) {
+  function handleFilter(event:React.ChangeEvent<HTMLInputElement>) {
     setFilterContent(event.target.value)
   }
 
@@ -27,7 +27,7 @@ function App() {
     setFilterContent('')
   }
 
-  function handlerFilterSelection(e:any) {
+  function handlerFilterSelection(e:React.ChangeEvent<HTMLInputElement>) {
     if (e.target.value === "locations"){
       setFilterQuery(LOCATIONS_QUERY)
     }  
@@ -41,8 +41,11 @@ function App() {
     setSeletedTypeName("name")
   }
 
-  function handlerSeletedTypeName(e:any) {
+  function handlerSeletedTypeName(e:React.ChangeEvent<HTMLSelectElement>) {
+    if(e.target.value === "name" || e.target.value === "type"){
     setSeletedTypeName(e.target.value)
+    }
+ 
   }
   
   return (

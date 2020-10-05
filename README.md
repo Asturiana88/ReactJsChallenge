@@ -1,3 +1,27 @@
+# Rick & Morty App Challenge 
+
+---
+
+### Is an app to obtain different information about Rick & Morty's serie like Characters, episodes or differents locations
+
+---
+
+## Tecnologies
+
+- [Node (v12.18.4)](https://nodejs.org/en/)
+
+- [React (v16.13.1)](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)
+
+- [Bootstrap (v4.5)](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+
+- [TypeScript (v4.0)](https://www.typescriptlang.org/download)
+
+- [Apollo Client (v3)](https://www.apollographql.com/docs/react/get-started/)
+
+- [Graphql (v15.3)](https://graphql.org/code/)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

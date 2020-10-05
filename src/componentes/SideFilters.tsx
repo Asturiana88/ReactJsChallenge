@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SideFilters(props:{handler:(e:any)=>void, value:string}) {
+export default function SideFilters(props:{handler:(e:React.ChangeEvent<HTMLInputElement>)=>void, value:string}) {
     const {handler, value} = props
     return (
         <div className="c-sidebar c-sidebar-dark c-sidebar-show">

@@ -22,8 +22,8 @@ query($name:String, $page:Int, $type:String ){
 `
 
 export const LOCATIONS_QUERY = gql `
-query($name:String, $page:Int){
-  locations(filter:{name:$name}, page:$page){
+query($name:String, $page:Int, $type:String){
+  locations(filter:{name:$name, type:$type}, page:$page){
     info{
       count
       pages
