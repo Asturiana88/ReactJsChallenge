@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Content from './componentes/Content';
-import SideFilters from './componentes/SideFilters';
-import Footer from './componentes/Footer';
+import Content from './components/Content';
+import SideFilters from './components/SideFilters';
+import Footer from './components/Footer';
 import "./App.css";
 import {CHARACTERS_QUERY, EPISODES_QUERY, LOCATIONS_QUERY} from './utils/queries';
 
