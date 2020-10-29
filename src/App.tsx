@@ -4,6 +4,7 @@ import SideFilters from './components/SideFilters';
 import Footer from './components/Footer';
 import "./App.css";
 import { CHARACTERS_QUERY, EPISODES_QUERY, LOCATIONS_QUERY } from './utils/queries';
+import { DocumentNode } from 'graphql';
 
 const MagnifierSvg = () => (
   <svg viewBox="0 0 16px 16px" className="magnifierSvg" xmlns="http://www.w3.org/2000/svg">
@@ -14,9 +15,9 @@ const MagnifierSvg = () => (
 
 function App() {
 
-  const [dataAttrib, setDataAttrib] = useState("characters")
-  const [filterQuery, setFilterQuery] = useState(CHARACTERS_QUERY)
-  const [filterContent, setFilterContent] = useState('')
+  const [dataAttrib, setDataAttrib] = useState<string>("characters")
+  const [filterQuery, setFilterQuery] = useState<DocumentNode>(CHARACTERS_QUERY)
+  const [filterContent, setFilterContent] = useState<string>('')
   const [seletedTypeName, setSeletedTypeName] = useState<"name" | "type">("name")
 
   function handleFilter(event: React.ChangeEvent<HTMLInputElement>) {

@@ -28,8 +28,8 @@ function Characters(props: { filter: string, query: DocumentNode, dataAttribute:
   const { filter, query, dataAttribute, onSeletedTypeName } = props
 
   const [page, setPage] = useState<number>(1)
-  const [show, setShow] = useState(false);
-  const [selectedElem, setSelectedElem] = useState({})
+  const [show, setShow] = useState<boolean>(false);
+  const [selectedElem, setSelectedElem] = useState<object>({})
 
 
   const queryOptions = {
