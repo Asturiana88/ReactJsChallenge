@@ -2,10 +2,10 @@ import React from 'react'
 
 interface SideFiltersPropsInterface {
     handler: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    value: string
+    dataAttribute: string
 }
 
-const SideFilters = ({ handler, value }: SideFiltersPropsInterface) => (
+const SideFilters = ({ handler, dataAttribute }: SideFiltersPropsInterface) => (
     <div className="c-sidebar c-sidebar-dark c-sidebar-show">
         <div className="d-flex flex-column">
             <h4>Filters</h4>
@@ -16,7 +16,7 @@ const SideFilters = ({ handler, value }: SideFiltersPropsInterface) => (
                     value="characters"
                     name="filter"
                     onChange={handler}
-                    checked={value === "characters"}
+                    checked={dataAttribute === "characters"}
                 />
                     Characters
                 </label>
@@ -27,7 +27,7 @@ const SideFilters = ({ handler, value }: SideFiltersPropsInterface) => (
                     value="episodes"
                     name="filter"
                     onChange={handler}
-                    checked={value === "episodes"}
+                    checked={dataAttribute === "episodes"}
                 />
                         Episodes
                 </label>
@@ -38,7 +38,7 @@ const SideFilters = ({ handler, value }: SideFiltersPropsInterface) => (
                     value="locations"
                     name="filter"
                     onChange={handler}
-                    checked={value === "locations"}
+                    checked={dataAttribute === "locations"}
                 />
                     Locations
                 </label>

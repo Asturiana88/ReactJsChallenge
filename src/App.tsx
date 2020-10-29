@@ -64,7 +64,7 @@ const App = () => {
             </div>
           </div>
           <div className="col-12 col-md-3 col-lg-2 sideFilterContainer" >
-            <SideFilters handler={handlerFilterSelection} value={dataAttrib} />
+            <SideFilters handler={handlerFilterSelection} dataAttribute={dataAttrib} />
           </div>
           <div className="col-12 col-md-9">
             <Content filter={filterContent} query={filterQuery} dataAttribute={dataAttrib} onSeletedTypeName={seletedTypeName} />

@@ -34,7 +34,7 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
 
   const [page, setPage] = useState<number>(1)
   const [show, setShow] = useState<boolean>(false);
-  const [selectedElem, setSelectedElem] = useState<object>({})
+  const [selectedEntity, setSelectedEntity] = useState<object>({})
 
   const queryOptions = {
     variables: {
@@ -63,46 +63,46 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
   let nextPage = data[dataAttribute].info.next
   let prevPage = data[dataAttribute].info.prev
 
-  const handleShow = (elem: itemInterface) => {
-    setSelectedElem(elem)
+  const handleShow = (entity: itemInterface) => {
+    setSelectedEntity(entity)
     setShow(true)
   };
   const handleClose = () => setShow(false);
 
-  const handleContentItem = (elem: itemInterface) => {
-    if (elem.image) {
+  const handleContentItem = (entity: itemInterface) => {
+    if (entity.image) {
       return (
         <>
-          <img src={elem.image} alt={`${elem.name} image`} className=" w-100" />
-          <h4 className="modal-title">{elem.name}</h4>
+          <img src={entity.image} alt={`${entity.name} image`} className=" w-100" />
+          <h4 className="modal-title">{entity.name}</h4>
         </>
       )
-    } else if (elem.dimension) {
+    } else if (entity.dimension) {
       return (
         <>
-          <h4 className="modal-title">{elem.name}</h4>
-          <p>Type: <h6 className="d-inline">{elem.type}</h6></p>
-          <p>Dimension: <h6 className="d-inline">{elem.dimension}</h6></p>
+          <h4 className="modal-title">{entity.name}</h4>
+          <p>Type: <h6 className="d-inline">{entity.type}</h6></p>
+          <p>Dimension: <h6 className="d-inline">{entity.dimension}</h6></p>
         </>
       )
     }
     return (
       <>
-        <h4 className="modal-title">{elem.name}</h4>
-        <p>Episode Date: <h6 className="d-inline">{elem.air_date}</h6></p>
-        <p>Episode: <h6 className="d-inline">{elem.episode}</h6></p>
+        <h4 className="modal-title">{entity.name}</h4>
+        <p>Episode Date: <h6 className="d-inline">{entity.air_date}</h6></p>
+        <p>Episode: <h6 className="d-inline">{entity.episode}</h6></p>
       </>
     )
   }
 
   return (
     <div className="mb-5" >
-      <Entity show={show} handleClose={handleClose} selElem={selectedElem} />
+      <Entity show={show} handleClose={handleClose} selectedEntity={selectedEntity} />
       <div className="row">
-        {data[dataAttribute].results.map((elem: itemInterface) => (
-          <div onClick={() => handleShow(elem)} className="col-12 col-md-6 col-lg-4 col-xl-3" key={elem.id} >
+        {data[dataAttribute].results.map((entity: itemInterface) => (
+          <div onClick={() => handleShow(entity)} className="col-12 col-md-6 col-lg-4 col-xl-3" key={entity.id} >
             <div className="contentItem hoverShadow">
-              {handleContentItem(elem)}
+              {handleContentItem(entity)}
             </div>
           </div>
         ))}
