@@ -13,22 +13,22 @@ const MagnifierSvg = () => (
   </svg>
 )
 
-function App() {
+const App = () => {
 
   const [dataAttrib, setDataAttrib] = useState<string>("characters")
   const [filterQuery, setFilterQuery] = useState<DocumentNode>(CHARACTERS_QUERY)
   const [filterContent, setFilterContent] = useState<string>('')
   const [seletedTypeName, setSeletedTypeName] = useState<"name" | "type">("name")
 
-  function handleFilter(event: React.ChangeEvent<HTMLInputElement>) {
+  const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterContent(event.target.value)
   }
 
-  function handlerReset() {
+  const handlerReset = () => {
     setFilterContent('')
   }
 
-  function handlerFilterSelection(e: React.ChangeEvent<HTMLInputElement>) {
+  const handlerFilterSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "locations") {
       setFilterQuery(LOCATIONS_QUERY)
     }
@@ -42,7 +42,7 @@ function App() {
     setSeletedTypeName("name")
   }
 
-  function handlerSeletedTypeName(e: React.ChangeEvent<HTMLSelectElement>) {
+  const handlerSeletedTypeName = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === "name" || e.target.value === "type") {
       setSeletedTypeName(e.target.value)
     }

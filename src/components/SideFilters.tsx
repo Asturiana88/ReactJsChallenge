@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SideFilters(props: { handler: (e: React.ChangeEvent<HTMLInputElement>) => void, value: string }) {
+const SideFilters = (props: { handler: (e: React.ChangeEvent<HTMLInputElement>) => void, value: string }) => {
     const { handler, value } = props
     return (
         <div className="c-sidebar c-sidebar-dark c-sidebar-show">
@@ -43,3 +43,5 @@ export default function SideFilters(props: { handler: (e: React.ChangeEvent<HTML
         </div>
     )
 }
+
+export default SideFilters;

@@ -23,7 +23,7 @@ export interface itemInterface {
   }]
 }
 
-function Characters(props: { filter: string, query: DocumentNode, dataAttribute: string, onSeletedTypeName: "name" | "type" }) {
+const Characters = (props: { filter: string, query: DocumentNode, dataAttribute: string, onSeletedTypeName: "name" | "type" }) => {
 
   const { filter, query, dataAttribute, onSeletedTypeName } = props
 
@@ -63,11 +63,11 @@ function Characters(props: { filter: string, query: DocumentNode, dataAttribute:
   let nextPage = data[dataAttribute].info.next
   let prevPage = data[dataAttribute].info.prev
 
-  function prevPageHandler() {
+  const prevPageHandler = () => {
     setPage(currentPage => currentPage - 1)
   }
 
-  function nextPageHandler() {
+  const nextPageHandler = () => {
     setPage(currentPage => currentPage + 1)
   }
 

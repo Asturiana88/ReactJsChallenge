@@ -8,7 +8,7 @@ interface EntityProps {
   selElem: itemInterface
 }
 
-export default function Entity(props: EntityProps) {
+const Entity = (props: EntityProps) => {
   const { show, handleClose, selElem } = props
   return (
     <Modal show={show} onHide={handleClose}>
@@ -96,3 +96,5 @@ export default function Entity(props: EntityProps) {
     </Modal>
   )
 }
+
+export default Entity;
