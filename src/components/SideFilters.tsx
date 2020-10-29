@@ -11,7 +11,7 @@ const SideFilters = ({ handler, dataAttribute }: SideFiltersPropsInterface) => (
             <h4>Filters</h4>
             <label>
                 <input
-                    style={{ marginRight: 10 }}
+                    className="mr-2"
                     type="radio"
                     value="characters"
                     name="filter"
@@ -22,7 +22,7 @@ const SideFilters = ({ handler, dataAttribute }: SideFiltersPropsInterface) => (
                 </label>
             <label>
                 <input
-                    style={{ marginRight: 10 }}
+                    className="mr-2"
                     type="radio"
                     value="episodes"
                     name="filter"
@@ -33,7 +33,7 @@ const SideFilters = ({ handler, dataAttribute }: SideFiltersPropsInterface) => (
                 </label>
             <label>
                 <input
-                    style={{ marginRight: 10 }}
+                    className="mr-2"
                     type="radio"
                     value="locations"
                     name="filter"
