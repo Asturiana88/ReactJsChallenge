@@ -23,14 +23,18 @@ export interface itemInterface {
   }]
 }
 
-const Characters = (props: { filter: string, query: DocumentNode, dataAttribute: string, onSeletedTypeName: "name" | "type" }) => {
+interface CharactersPropsInterface {
+  filter: string,
+  query: DocumentNode,
+  dataAttribute: string,
+  onSeletedTypeName: "name" | "type"
+}
 
-  const { filter, query, dataAttribute, onSeletedTypeName } = props
+const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: CharactersPropsInterface) => {
 
   const [page, setPage] = useState<number>(1)
   const [show, setShow] = useState<boolean>(false);
   const [selectedElem, setSelectedElem] = useState<object>({})
-
 
   const queryOptions = {
     variables: {

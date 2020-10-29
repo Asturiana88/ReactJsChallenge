@@ -1,7 +1,11 @@
 import React from 'react'
 
-const SideFilters = (props: { handler: (e: React.ChangeEvent<HTMLInputElement>) => void, value: string }) => {
-    const { handler, value } = props
+interface SideFiltersPropsInterface {
+    handler: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    value: string
+}
+
+const SideFilters = ({ handler, value }: SideFiltersPropsInterface) => {
     return (
         <div className="c-sidebar c-sidebar-dark c-sidebar-show">
             <div className="d-flex flex-column">

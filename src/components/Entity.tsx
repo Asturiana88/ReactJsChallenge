@@ -2,14 +2,13 @@ import React from 'react'
 import { Modal } from 'react-bootstrap'
 import { itemInterface } from './Content'
 
-interface EntityProps {
+interface EntityPropsInterface {
   show: Boolean,
   handleClose: (elem: itemInterface) => void,
   selElem: itemInterface
 }
 
-const Entity = (props: EntityProps) => {
-  const { show, handleClose, selElem } = props
+const Entity = ({ show, handleClose, selElem }: EntityPropsInterface) => {
   return (
     <Modal show={show} onHide={handleClose}>
       {
