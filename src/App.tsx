@@ -24,10 +24,6 @@ const App = () => {
     setFilterContent(event.target.value)
   }
 
-  const handlerReset = () => {
-    setFilterContent('')
-  }
-
   const handlerFilterSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "locations") {
       setFilterQuery(LOCATIONS_QUERY)
@@ -64,7 +60,7 @@ const App = () => {
                 <input type="text" className="form-control inputSearch" value={filterContent} onChange={handleFilter} />
                 <MagnifierSvg />
               </div>
-              <button className="btn btn-dark ml-1" onClick={handlerReset}>Reset</button>
+              <button className="btn btn-dark ml-1" onClick={() => setFilterContent('')}>Reset</button>
             </div>
           </div>
           <div className="col-12 col-md-3 col-lg-2 sideFilterContainer" >

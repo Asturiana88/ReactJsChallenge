@@ -40,11 +40,7 @@ const Characters = (props: { filter: string, query: DocumentNode, dataAttribute:
     }
   }
 
-  useEffect(() => {
-    setPage(1)
-  }, [filter]);
-
-
+  useEffect(() => { setPage(1) }, [filter]);
 
   if (filter.length > 2 || filter.length === 0) {
     queryOptions.variables[onSeletedTypeName] = filter
