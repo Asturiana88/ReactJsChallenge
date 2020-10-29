@@ -63,14 +63,6 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
   let nextPage = data[dataAttribute].info.next
   let prevPage = data[dataAttribute].info.prev
 
-  const prevPageHandler = () => {
-    setPage(currentPage => currentPage - 1)
-  }
-
-  const nextPageHandler = () => {
-    setPage(currentPage => currentPage + 1)
-  }
-
   const handleShow = (elem: itemInterface) => {
     setSelectedElem(elem)
     setShow(true)
@@ -78,7 +70,7 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
   const handleClose = () => setShow(false);
 
   return (
-    <div>
+    <div className="mb-5" >
       <Entity show={show} handleClose={handleClose} selElem={selectedElem} />
       <div className="row">
         {data[dataAttribute].results.map((elem: itemInterface) => {
@@ -108,8 +100,8 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
           )
         })}
       </div>
-      <button className="btn btn-dark ml-1" disabled={prevPage == null} onClick={prevPageHandler}>Previous Page</button>
-      <button className="btn btn-dark ml-1" disabled={nextPage == null} onClick={nextPageHandler}>Next Page</button>
+      <button className="btn btn-dark ml-1" disabled={prevPage == null} onClick={() => setPage(prevPage)}>Previous Page</button>
+      <button className="btn btn-dark ml-1" disabled={nextPage == null} onClick={() => setPage(nextPage)}>Next Page</button>
     </div>
   )
 }
