@@ -45,8 +45,8 @@ const Entity = ({ show, handleClose, selElem }: EntityPropsInterface) => {
           <Modal.Title className="titleModal">
             {selElem.name}
           </Modal.Title>
-          <p><strong><u>Type:</u></strong>{" " + selElem.type}</p>
-          <p><strong><u>Dimension:</u></strong>{" " + selElem.dimension}</p>
+          <p><strong><u>Type:</u></strong>{` ${selElem.type}`}</p>
+          <p><strong><u>Dimension:</u></strong>{` ${selElem.dimension}`}</p>
           <p><u><strong>Residents: </strong></u></p>
           <div className="row">
             {selElem.residents && selElem.residents.map((elem: itemInterface, i: number) => {
@@ -55,7 +55,7 @@ const Entity = ({ show, handleClose, selElem }: EntityPropsInterface) => {
                 return (
                   <div key={elem.id} className="col-5 col-md-3 titleModal contentItem">
                     <img width="100%" src={elem.image} alt={elem.name} /> <br />
-                    <strong>{" " + elem.name}</strong>
+                    <strong>{` ${elem.name}`}</strong>
                   </div>
                 )
               }
@@ -70,8 +70,8 @@ const Entity = ({ show, handleClose, selElem }: EntityPropsInterface) => {
         <Modal.Title className="titleModal">
           {selElem.name}
         </Modal.Title>
-        <p><strong><u>Release Date:</u></strong>{" " + selElem.air_date}</p>
-        <p><strong><u>Episode:</u></strong>{" " + selElem.episode}</p>
+        <p><strong><u>Release Date:</u></strong>{` ${selElem.air_date}`}</p>
+        <p><strong><u>Episode:</u></strong>{` ${selElem.episode}`}</p>
         <p><u><strong>Characters: </strong></u></p>
         <div className="row">
           {selElem.characters && selElem.characters.map((elem: itemInterface, i: number) => {
@@ -79,7 +79,7 @@ const Entity = ({ show, handleClose, selElem }: EntityPropsInterface) => {
               return (
                 <div key={elem.id} className="col-5 col-md-3 titleModal contentItem">
                   <img width="100%" src={elem.image} alt={elem.name} /> <br />
-                  <strong>{" " + elem.name}</strong>
+                  <strong>{` ${elem.name}`}</strong>
                 </div>
               )
             }

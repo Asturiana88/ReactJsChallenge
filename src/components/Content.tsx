@@ -73,7 +73,7 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
     if (elem.image) {
       return (
         <>
-          <img src={elem.image} alt={elem.name + "image"} className=" w-100" />
+          <img src={elem.image} alt={`${elem.name} image`} className=" w-100" />
           <h4 className="modal-title">{elem.name}</h4>
         </>
       )
