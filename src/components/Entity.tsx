@@ -25,7 +25,11 @@ const Entity = ({ show, handleClose, selectedEntity }: EntityPropsInterface) => 
             <tbody>
               <tr>
                 <td>Type:</td>
-                <td><strong>{selectedEntity.type === "" ? " - " : selectedEntity.type}</strong></td>
+                <td>
+                  <strong>
+                    {selectedEntity.type || " - "}
+                  </strong>
+                </td>
               </tr>
               <tr>
                 <td>Gender:</td>
