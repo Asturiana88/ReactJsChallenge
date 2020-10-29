@@ -2,13 +2,13 @@ import React from 'react'
 import { Modal } from 'react-bootstrap'
 import { itemInterface } from './Content'
 
-interface EntityPropsInterface {
+interface Props {
   show: Boolean,
   handleClose: (entity: itemInterface) => void,
   selectedEntity: itemInterface
 }
 
-const Entity = ({ show, handleClose, selectedEntity }: EntityPropsInterface) => {
+const Entity = ({ show, handleClose, selectedEntity }: Props) => {
   if (show && !selectedEntity.name) {
     return <>Loading...</>
   }

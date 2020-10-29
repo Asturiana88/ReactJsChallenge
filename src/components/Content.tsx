@@ -23,14 +23,14 @@ export interface itemInterface {
   }]
 }
 
-interface CharactersPropsInterface {
+interface Props {
   filter: string,
   query: DocumentNode,
   dataAttribute: string,
   onSeletedTypeName: "name" | "type"
 }
 
-const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: CharactersPropsInterface) => {
+const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Props) => {
 
   const [page, setPage] = useState<number>(1)
   const [show, setShow] = useState<boolean>(false);
