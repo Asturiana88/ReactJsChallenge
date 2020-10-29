@@ -1,75 +1,75 @@
-.hoverShadow:hover{
+.hoverShadow:hover {
   box-shadow: 0 0 8px #343a40;
   transform: scale(1.05);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.magnifierSvg{
-  position: absolute; 
-  left:10px;
+.magnifierSvg {
+  position: absolute;
+  left: 10px;
   top: 10px;
-  width:1em ;
-  height:1em;
-  fill:currentColor ;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }
 
-.inputSearch{
+.inputSearch {
   padding-left: 35px;
   border-radius: 30px;
 }
 
-.sideFilterContainer{
+.sideFilterContainer {
   border-right: 3px solid #343a40;
 }
 
-.footerContainer{
-  background-color:#343a40;
-  position:fixed;
-  bottom:0;
-  width:100%
+.footerContainer {
+  background-color: #343a40;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-.footerFont{
+.footerFont {
   color: white;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-.closeBtn{
+.closeBtn {
   padding: 10px !important;
   outline: none;
-  font-weight:bold;
-  opacity:1;
+  font-weight: bold;
+  opacity: 1;
 }
 
-.titleModal{
-  text-align: center
+.titleModal {
+  text-align: center;
 }
 
-.noData{
-  margin: 10px
+.noData {
+  margin: 10px;
 }
 
-.footerH{
+.footerH {
   height: 40px;
 }
 
-.selectType{
+.selectType {
   background-color: #343a40;
-  color:white
+  color: white;
 }
 
-.contentItem{
+.contentItem {
   padding: 10px;
   margin: 10px;
   border: 2px solid #343a40;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.notFound{
+.notFound {
   max-height: -webkit-fill-available;
   max-width: 100%;
 }
 
-.modal-title{
+.modal-title {
   margin-bottom: 15px;
 }
