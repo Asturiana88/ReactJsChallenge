@@ -51,7 +51,7 @@ const Entity = ({ show, handleClose, selectedEntity }: EntityPropsInterface) => 
           <div className="row">
             {selectedEntity.residents && selectedEntity.residents.map((entity: itemInterface, i: number) => {
               if (i < 5) {
-                if (entity.name == null) { return <strong className="noData">No Residents</strong> }
+                if (entity.name === null) { return <strong className="noData">No Residents</strong> }
                 return (
                   <div key={entity.id} className="col-5 col-md-3 titleModal contentItem">
                     <img width="100%" src={entity.image} alt={entity.name} /> <br />

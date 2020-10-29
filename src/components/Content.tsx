@@ -107,8 +107,8 @@ const Characters = ({ filter, query, dataAttribute, onSeletedTypeName }: Charact
           </div>
         ))}
       </div>
-      <button className="btn btn-dark ml-1" disabled={prevPage == null} onClick={() => setPage(prevPage)}>Previous Page</button>
-      <button className="btn btn-dark ml-1" disabled={nextPage == null} onClick={() => setPage(nextPage)}>Next Page</button>
+      <button className="btn btn-dark ml-1" disabled={prevPage === null} onClick={() => setPage(prevPage)}>Previous Page</button>
+      <button className="btn btn-dark ml-1" disabled={nextPage === null} onClick={() => setPage(nextPage)}>Next Page</button>
     </div>
   )
 }
